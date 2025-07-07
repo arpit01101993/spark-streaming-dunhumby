@@ -29,15 +29,15 @@ mongo_df.show(5)
 # Example: convert nested docs, timestamps, etc. as needed
 # mongo_df = mongo_df.withColumn("order_date", col("order_date").cast("timestamp"))
 
-# ✅ 4️⃣ Write to Iceberg table in S3
+# Write to Iceberg table in S3
 # This will create the table if it doesn't exist, or overwrite it
-print("✅ Writing to S3 Iceberg...")
+print("Writing to S3 Iceberg...")
 mongo_df.writeTo("my_catalog.ecommerce.orders_iceberg") \
     .using("iceberg") \
     .tableProperty("format-version", "2") \
     .createOrReplace()
 
-print("✅ Done writing to Iceberg!")
+print("Done writing to Iceberg!")
 
 # Verify by reading the Iceberg table back
 result = spark.sql("SELECT * FROM my_catalog.ecommerce.orders_iceberg LIMIT 5")
