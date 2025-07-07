@@ -1,0 +1,16 @@
+# Core PySpark
+pyspark==3.5.0
+
+# Spark + Hadoop AWS (S3 support)
+# Note: For S3 you usually use hadoop-aws jar, but boto3 can help with S3 configs in Python.
+boto3>=1.28.0
+
+# Spark JDBC connectors are normally Java JARs — but you may use Python drivers for Cassandra/ClickHouse for some client ops.
+cassandra-driver>=3.27.0
+clickhouse-connect>=0.6.7
+
+# Iceberg Python API (for Spark you’d also add iceberg jars at runtime)
+pyiceberg>=0.5.0
+
+# Optional: config & env
+python-dotenv>=1.0.0
